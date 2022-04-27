@@ -32,6 +32,6 @@
 13
  nhận đối tượng mesage từ phía client và nó sẽ ánh xạ từ json sang java opject gửi đến
 
-14 Spring.port=999
+14 Spring.port=99
 
  
