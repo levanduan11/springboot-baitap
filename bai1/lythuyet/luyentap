@@ -1,0 +1,37 @@
+
+1: 
+  +GroupId là id của nhóm dự án. Nói chung, nó là duy nhất trong một tổ chức.
+  +ArtifactId là id của dự án. Nó chỉ định tên của dự án. 
+
+2:  để viết đúng thứ tự từ lớn đến nhỏ
+3: +Maven
+  + Grandle
+4:   File pom.xml là nơi khai báo tất cả những gì liên quan đến dự án được cấu hình qua maven, như khai báo các dependency, version của dự án, tên dự án,
+5:Dùng để tải các thư viện về cho application
+6:Controller trong ứng dụng Spring Boot là nơi tiếp nhận request và trả về response cho client. Có thể hiểu controller chính là lớp trung gian giữa server của bạn và bên ngoài.
+7: 
+  +Annotation này ánh xạ các HTTP request tới các phương thức xử lý của MVC và REST controller.
+  +có thể định nghĩa các phương thức http như get,pots,put ,delete @RequestMapping(value="/test", method = RequestMethod.GET)
+8   
+  @RequestBody được dùng để ánh xạ HttpRequest body sang một domain object tự động.
+
+9 
+  Trong Spring, @RequestParam và @PathVariable annotation đều được sử dụng để trích xuất dữ liệu từ request URL
+  @RequestParam được dùng để trích xuất dữ liệu từ request query
+  @PathVariable thì được dùng để trích xuất dữ liệu từ URL path.
+
+10 
+  không thể hoán đổi được
+
+11   
+  GetMapping dùng để quản lý http get method các pram được gửi trên url
+  PostMapping dùng để quản lý http post method các pram được gửi trong thân body
+
+12
+  có ý nghĩa là sẽ phản hồi client kiểu dữ liệu gì
+13
+ nhận đối tượng mesage từ phía client và nó sẽ ánh xạ từ json sang java opject gửi đến
+
+14 Spring.port=999
+
+ 
