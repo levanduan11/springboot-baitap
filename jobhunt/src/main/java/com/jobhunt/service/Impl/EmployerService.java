@@ -1,5 +1,6 @@
 package com.jobhunt.service.Impl;
 
+
 import com.jobhunt.domain.Employer;
 import com.jobhunt.repository.BaseRepositoty;
 import com.jobhunt.service.IEmployerService;

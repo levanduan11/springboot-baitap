@@ -10,8 +10,7 @@ public class JobhuntApplication {
 
 	public static void main(String[] args) {
 	ApplicationContext context=	SpringApplication.run(JobhuntApplication.class, args);
-		EmployerService service=context.getBean(EmployerService.class);
-		System.out.println(service.listAll());
+
 	}
 
 }
