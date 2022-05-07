@@ -1,0 +1,125 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>em-main</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container-fluid bg-dark">
+
+    <nav th:replace="nav::header" class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+    </nav>
+
+  </div>
+  <div class="container p-4">
+    <div class="m-3">
+      <a th:href="@{/em/new}" class="btn btn-primary">Add</a>
+    </div>
+    <div class="text-center">[[${message}]]</div>
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="root">
+        <tr th:each="em : ${employers}">
+          <td>[[${em.name}]]</td>
+          <td>[[${em.address}]]</td>
+          <td>[[${em.email}]]</td>
+          <td>
+            <a th:href="@{'/em/edit/'+${em.id}}" class="btn btn-primary edit">edit</a>
+
+            <a th:href="@{'/em/delete/'+${em.id}}" class="btn btn-danger delete">delete</a>
+
+
+
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Confirm</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you want to delete
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a id="link-remove" class="btn btn-primary">delete </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // const del = Array.from(document.querySelectorAll('.delete'));
+    // console.log(del)
+    // del.forEach((e) => {
+    //   e.addEventListener('click',function(event){
+    //     event.preventDefault();
+    //     alert(9999)
+    //     console.log(event.target)
+    //   })
+
+    // })
+    const root = document.getElementById('root');
+    root.addEventListener('click', (e) => {
+      const del = e.target.closest('.delete');
+
+      if (del) {
+        e.preventDefault();
+        const href = del.getAttribute('href');
+        const btn = document.createElement('button');
+        btn.setAttribute('data-target', '#deleteModal');
+        btn.setAttribute('data-toggle', 'modal');
+        btn.setAttribute('type', 'button');
+        // btn.style.display='none';
+        root.append(btn);
+        btn.click();
+        root.removeChild(btn);
+        document.getElementById('link-remove').setAttribute('href', href);
+
+      }
+    })
+
+
+
+  </script>
+
+</body>
+
+</html>
